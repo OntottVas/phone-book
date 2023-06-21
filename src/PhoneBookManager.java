@@ -30,6 +30,11 @@ public class PhoneBookManager {
         //  2. Search contact
         //  3. Remove contact
         //  4. Exit
+        System.out.println("0. List contacts");
+        System.out.println("1. Add contact");
+        System.out.println("2. Search contact");
+        System.out.println("3. Remove contact");
+        System.out.println("4. Exit");
     }
 
     private void listContacts() {
