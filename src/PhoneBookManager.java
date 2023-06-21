@@ -16,9 +16,16 @@ public class PhoneBookManager {
         boolean running = true;
         while (running) {
             printMenu(); // TODO valósítsd meg a printMenu() metódust!
-            int choice; // TODO olvasd be a felhasználótól, mit szeretne csinálni!
+            int choice = scanner.nextInt(); // TODO olvasd be a felhasználótól, mit szeretne csinálni!
             scanner.nextLine(); // vajon miért kell ez a sor?
             // TODO a megadott szám alapján hívd meg a megfelelő metódust vagy lépj ki!
+            switch (choice){
+                case 0 -> listContacts();
+                case 1 -> addContact();
+                case 2 -> searchContact();
+                case 3 -> removeContact();
+                case 4 -> {return;}
+            }
         }
         scanner.close();
     }
@@ -43,10 +50,17 @@ public class PhoneBookManager {
 
     private void addContact() {
         // TODO olvasd be egy változóba a kontakt nevét
+        System.out.println("Name?");
+        String name = scanner.nextLine();
         // TODO olvasd be egy változóba a kontakt telefonszámát
+        System.out.println("Phonenumber?");
+        int phoneNumber = scanner.nextInt();
+        scanner.nextLine();
         // TODO példányosíts ezekből az adatokból egy Contact-ot
+        Contact contact = new Contact(name, phoneNumber);
         // TODO tedd bele ezeket az infókat a mapbe:
         //      mi lesz a kulcs és mi az érték?
+        this.phoneBook.put(name, contact);
     }
 
     private void searchContact() {
