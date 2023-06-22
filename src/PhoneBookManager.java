@@ -1,3 +1,4 @@
+import java.security.spec.RSAOtherPrimeInfo;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -72,6 +73,8 @@ public class PhoneBookManager {
         //  azt is a felhasználónak!
         System.out.println("Who are you looking for?");
         String name = scanner.nextLine();
+        Contact contact = phoneBook.getOrDefault(name, new Contact("Nincs", "ilyen tesó"));
+        System.out.println(contact);
         if(phoneBook.containsKey(name)) {
             System.out.println(phoneBook.get(name));
         } else {
@@ -83,6 +86,14 @@ public class PhoneBookManager {
         // TODO valósítsd meg a név alapján való törlést
         //  ha nem találod meg az adott kontaktot, jelezd
         //  azt is a felhasználónak!
+
+        System.out.println("Who do you want to delete from your contact list?");
+        String name = scanner.nextLine();
+        if(phoneBook.containsKey(name)) {
+            phoneBook.remove(name);
+        } else {
+            System.out.println("Sorry, it seems you do not have contact by this name");
+        }
     }
 
 }
