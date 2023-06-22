@@ -25,7 +25,8 @@ public class PhoneBookManager {
                 case 1 -> addContact();
                 case 2 -> searchContact();
                 case 3 -> removeContact();
-                case 4 -> {return;}
+                case 4 -> running = false;
+                default -> System.out.println("Error");
             }
         }
         scanner.close();
@@ -73,8 +74,8 @@ public class PhoneBookManager {
         //  azt is a felhasználónak!
         System.out.println("Who are you looking for?");
         String name = scanner.nextLine();
-        Contact contact = phoneBook.getOrDefault(name, new Contact("Nincs", "ilyen tesó"));
-        System.out.println(contact);
+        /*Contact contact = phoneBook.getOrDefault(name, new Contact("Nincs", "ilyen tesó"));
+        System.out.println(contact);*/
         if(phoneBook.containsKey(name)) {
             System.out.println(phoneBook.get(name));
         } else {
