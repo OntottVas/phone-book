@@ -46,6 +46,10 @@ public class PhoneBookManager {
 
     private void listContacts() {
         // TODO Szépen formázva írd ki a telefonkönyv összes bejegyzését!
+        for (Map.Entry<String, Contact> entry : phoneBook.entrySet()) {
+            System.out.println(entry.getValue());
+        }
+
     }
 
     private void addContact() {
@@ -54,8 +58,7 @@ public class PhoneBookManager {
         String name = scanner.nextLine();
         // TODO olvasd be egy változóba a kontakt telefonszámát
         System.out.println("Phonenumber?");
-        int phoneNumber = scanner.nextInt();
-        scanner.nextLine();
+        String phoneNumber = scanner.nextLine();
         // TODO példányosíts ezekből az adatokból egy Contact-ot
         Contact contact = new Contact(name, phoneNumber);
         // TODO tedd bele ezeket az infókat a mapbe:
@@ -67,6 +70,13 @@ public class PhoneBookManager {
         // TODO valósítsd meg a név alapján való keresést
         //  ha nem találod meg az adott kontaktot, jelezd
         //  azt is a felhasználónak!
+        System.out.println("Who are you looking for?");
+        String name = scanner.nextLine();
+        if(phoneBook.containsKey(name)) {
+            System.out.println(phoneBook.get(name));
+        } else {
+            System.out.println("Sorry, it seems you do not have contact info.");
+        }
     }
 
     private void removeContact() {
