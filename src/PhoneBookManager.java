@@ -4,8 +4,8 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class PhoneBookManager {
-    private Map<String, Contact> phoneBook;
-    private Scanner scanner;
+    private final Map<String, Contact> phoneBook;
+    private final Scanner scanner;
 
     public PhoneBookManager() {
         phoneBook = new HashMap<>();
